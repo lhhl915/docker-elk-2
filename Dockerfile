@@ -16,8 +16,10 @@ RUN groupadd --gid 1000 daily && \
     tar -xzvf /opt/kibana-4.3.1-linux-x64.tar.gz -C /opt/ && \
     tar -xzvf /opt/elasticsearch-2.1.1.tar.gz -C /opt/ && \
     mv /opt/elasticsearch-2.1.1 /opt/elasticsearch && \
-    mv /opt/kibana-4.3.1-linux-x64 /opt/kibana
+    mv /opt/kibana-4.3.1-linux-x64 /opt/kibana && \
+    chown daily:daily -R /opt/*
 
+COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 5601 9200
 WORKDIR /opt/
 CMD ["supervisord","-n","-c","/etc/supervisord.conf"]
