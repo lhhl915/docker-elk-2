@@ -1,11 +1,6 @@
 FROM weian404/docker-jdk:jdk8u66
 
-RUN groupadd --gid 1000 daily && \
-    useradd -g daily --uid 1000 daily && \
-    yum -y install python-setuptools && \
-    easy_install supervisor && \
-    echo_supervisord_conf > /etc/supervisord.conf && \
-    curl -v -j -k -L \
+RUN curl -v -j -k -L \
       -o /opt/kibana-4.3.1-linux-x64.tar.gz \
       --insecure \
       https://download.elastic.co/kibana/kibana/kibana-4.3.1-linux-x64.tar.gz && \
@@ -21,5 +16,5 @@ RUN groupadd --gid 1000 daily && \
 
 COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 5601 9200
-WORKDIR /opt/
+
 CMD ["supervisord","-n","-c","/etc/supervisord.conf"]
