@@ -1,6 +1,8 @@
 FROM weian404/docker-jdk:jdk8u66
 
-RUN yum -y install python-setuptools && \
+RUN groupadd --gid 1000 daily && \
+    useradd -g daily --uid 1000 daily && \
+    yum -y install python-setuptools && \
     easy_install supervisor && \
     echo_supervisord_conf > /etc/supervisord.conf && \
     curl -v -j -k -L \
