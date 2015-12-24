@@ -13,10 +13,11 @@ RUN curl -v -j -k -L \
     mv /opt/elasticsearch-2.1.1 /opt/elasticsearch && \
     mv /opt/kibana-4.3.1-linux-x64 /opt/kibana && \
     \
-    /opt/kibana/bin/kibana plugin --install elastic/sense \
-    /opt/elasticsearch/bin/plugin install license \
-    /opt/elasticsearch/bin/plugin install marvel-agent \
-    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest \
+    /opt/kibana/bin/kibana plugin --install elastic/sense && \
+    /opt/elasticsearch/bin/plugin install license && \
+    /opt/elasticsearch/bin/plugin install marvel-agent && \
+    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest && \
+    \
     chown daily:daily -R /opt/*
 
 COPY supervisord.conf /etc/supervisord.conf
