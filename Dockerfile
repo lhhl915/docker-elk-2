@@ -15,7 +15,7 @@ RUN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
     rm -rf /opt/elasticsearch.tar.gz && \
     rm -rf /opt/kibana.tar.gz
 
-RUN /opt/kibana/bin/kibana plugin --install elastic/sense
+#RUN /opt/kibana/bin/kibana plugin --install elastic/sense
 #    && \
 #    /opt/elasticsearch/bin/plugin install license && \
 #    /opt/elasticsearch/bin/plugin install marvel-agent && \
