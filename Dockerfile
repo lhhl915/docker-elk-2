@@ -21,8 +21,8 @@ RUN tar -xzvf /opt/kibana-${kibana-version}-linux-x64.tar.gz -C /opt/ && \
     /opt/elasticsearch/bin/plugin install marvel-agent && \
     /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest && \
     \
-    rm -rf /opt/kibana-${kibana-version}-linux-x64.tar.gz \
-    rm -rf /opt/elasticsearch-${elasticsearch-version}.tar.gz
+    rm -rf /opt/kibana-${kibana-version}-linux-x64.tar.gz && \
+    rm -rf /opt/elasticsearch-${elasticsearch-version}.tar.gz && \
     chown daily:daily -R /opt/*
 
 COPY supervisord.conf /etc/supervisord.conf
