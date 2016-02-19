@@ -10,7 +10,7 @@ RUN curl -v -j -k -L \
       curl -v -j -k -L \
       -o /opt/elasticsearch-${elasticsearch-version}.tar.gz \
       --insecure \
-      https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.1.1/elasticsearch-${elasticsearch-version}.tar.gz && \
+      https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${elasticsearch-version}/elasticsearch-${elasticsearch-version}.tar.gz && \
     tar -xzvf /opt/kibana-${kibana-version}-linux-x64.tar.gz -C /opt/ && \
     tar -xzvf /opt/elasticsearch-${elasticsearch-version}.tar.gz -C /opt/ && \
     mv /opt/elasticsearch-${elasticsearch-version} /opt/elasticsearch && \
