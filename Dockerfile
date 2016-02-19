@@ -6,12 +6,12 @@ ENV kibana-version 4.4.1
 RUN curl -v -j -k -L \
       -o /opt/kibana-${kibana-version}-linux-x64.tar.gz \
       --insecure \
-      https://download.elastic.co/kibana/kibana/kibana-${kibana-version}-linux-x64.tar.gz && \
-      curl -v -j -k -L \
+      https://download.elastic.co/kibana/kibana/kibana-${kibana-version}-linux-x64.tar.gz
+RUN curl -v -j -k -L \
       -o /opt/elasticsearch-${elasticsearch-version}.tar.gz \
       --insecure \
-      https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${elasticsearch-version}/elasticsearch-${elasticsearch-version}.tar.gz && \
-    tar -xzvf /opt/kibana-${kibana-version}-linux-x64.tar.gz -C /opt/ && \
+      https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${elasticsearch-version}/elasticsearch-${elasticsearch-version}.tar.gz
+RUN tar -xzvf /opt/kibana-${kibana-version}-linux-x64.tar.gz -C /opt/ && \
     tar -xzvf /opt/elasticsearch-${elasticsearch-version}.tar.gz -C /opt/ && \
     mv /opt/elasticsearch-${elasticsearch-version} /opt/elasticsearch && \
     mv /opt/kibana-${kibana-version}-linux-x64 /opt/kibana && \
