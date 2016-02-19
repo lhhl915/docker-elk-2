@@ -13,17 +13,17 @@ RUN curl -v -j -k -L \
       --insecure \
       https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/${elasticsearch-version}/elasticsearch-${elasticsearch-version}.tar.gz
 
-RUN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
-    tar -xzvf /opt/elasticsearch.tar.gz -C /opt/ && \
-    rm -rf /opt/elasticsearch.tar.gz && \
-    rm -rf /opt/kibana.tar.gz
+#UN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
+#    tar -xzvf /opt/elasticsearch.tar.gz -C /opt/ && \
+#    rm -rf /opt/elasticsearch.tar.gz && \
+#    rm -rf /opt/kibana.tar.gz
 
-RUN /opt/kibana/bin/kibana plugin --install elastic/sense && \
-    /opt/elasticsearch/bin/plugin install license && \
-    /opt/elasticsearch/bin/plugin install marvel-agent && \
-    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
+#UN /opt/kibana/bin/kibana plugin --install elastic/sense && \
+#    /opt/elasticsearch/bin/plugin install license && \
+#    /opt/elasticsearch/bin/plugin install marvel-agent && \
+#    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
 
-RUN chown daily:daily -R /opt/*
+#UN chown daily:daily -R /opt/*
 
 COPY supervisord.conf /etc/supervisord.conf
 EXPOSE 5601 9200 9300
