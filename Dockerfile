@@ -15,10 +15,13 @@ RUN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
     rm -rf /opt/elasticsearch.tar.gz && \
     rm -rf /opt/kibana.tar.gz
 
-RUN /opt/kibana/bin/kibana plugin --install elastic/sense && \
-    /opt/elasticsearch/bin/plugin install license && \
-    /opt/elasticsearch/bin/plugin install marvel-agent && \
-    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
+RUN /opt/kibana/bin/kibana plugin --install elastic/sense
+#    && \
+#    /opt/elasticsearch/bin/plugin install license && \
+#    /opt/elasticsearch/bin/plugin install marvel-agent && \
+#    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
+
+COPY config/ /opt/elasticsearch/config/
 
 RUN chown daily:daily -R /opt/*
 
