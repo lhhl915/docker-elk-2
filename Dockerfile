@@ -21,7 +21,7 @@ RUN cd /opt/kibana && \
     bin/kibana plugin --install elastic/sense && \
     bin/kibana plugin --install elasticsearch/marvel/latest
 
-RUN cd /opt/elasticsearch && |
+RUN cd /opt/elasticsearch && \
     bin/plugin install license && \
     bin/plugin install marvel-agent
 
