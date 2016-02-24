@@ -13,13 +13,17 @@ RUN curl -v -j -k -L \
 RUN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
     tar -xzvf /opt/elasticsearch.tar.gz -C /opt/ && \
     rm -rf /opt/elasticsearch.tar.gz && \
-    rm -rf /opt/kibana.tar.gz
+    rm -rf /opt/kibana.tar.gz && \
+    mv elasticsearch* elasticsearch && \
+    mv kibana* kibana
 
-#RUN /opt/kibana/bin/kibana plugin --install elastic/sense
-#    && \
-#    /opt/elasticsearch/bin/plugin install license && \
-#    /opt/elasticsearch/bin/plugin install marvel-agent && \
-#    /opt/kibana/bin/kibana plugin --install elasticsearch/marvel/latest
+RUN cd /opt/kibana && \
+    bin/kibana plugin --install elastic/sense && \
+    bin/kibana plugin --install elasticsearch/marvel/latest
+
+RUN cd /opt/elasticsearch && |
+    bin/plugin install license && \
+    bin/plugin install marvel-agent
 
 COPY config/ /opt/elasticsearch/config/
 
