@@ -25,7 +25,8 @@ RUN cd /opt/elasticsearch && \
     bin/plugin install license && \
     bin/plugin install marvel-agent
 
-COPY config/ /opt/elasticsearch/config/
+COPY config/elasticsearch/ /opt/elasticsearch/config/
+COPY config/kibana/ /opt/kibana/config/
 
 RUN chown daily:daily -R /opt/*
 
