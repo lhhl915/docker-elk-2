@@ -3,12 +3,12 @@ FROM weian404/docker-jdk:jdk8u66
 RUN curl -v -j -k -L \
       -o /opt/kibana.tar.gz \
       --insecure \
-      https://download.elastic.co/kibana/kibana/kibana-4.4.1-linux-x64.tar.gz
+      https://download.elastic.co/kibana/kibana/kibana-4.5.1-linux-x64.tar.gz
 
 RUN curl -v -j -k -L \
       -o /opt/elasticsearch.tar.gz \
       --insecure \
-      https://download.elasticsearch.org/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.2.0/elasticsearch-2.2.0.tar.gz
+      https://download.elastic.co/elasticsearch/release/org/elasticsearch/distribution/tar/elasticsearch/2.3.3/elasticsearch-2.3.3.tar.gz
 
 RUN tar -xzvf /opt/kibana.tar.gz -C /opt/ && \
     tar -xzvf /opt/elasticsearch.tar.gz -C /opt/ && \
